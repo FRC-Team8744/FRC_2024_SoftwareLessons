@@ -1,3 +1,10 @@
+[Git in VSCode Documentation](https://code.visualstudio.com/docs/sourcecontrol/overview)
+
+
+Don't forget: 
+[Trapezoidal Motion Profiles](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/trapezoidal-profiles.html)
+[Turret Simulation](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/tuning-turret.html)
+
 # Lesson 2: Thomas can turn! (again)
 
 We were able to cover the technical explaination of PID last meeting, but we didn't to the actual robot!  With so many new members, we will have to backtrack a little to make sure everyone understands how to download code to the robot.
