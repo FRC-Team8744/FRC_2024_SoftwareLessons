@@ -1,0 +1,11 @@
+{
+   "game": "Box Grid",
+   "field-image": "BoxGrid.png",
+   "field-corners": {
+      "top-left": [1, 1],
+      "bottom-right": [958, 958]
+   },
+   "field-size": [10.0, 10.0],
+   "field-unit": "feet"
+}
+
