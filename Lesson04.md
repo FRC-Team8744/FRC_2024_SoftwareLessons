@@ -41,10 +41,13 @@ https://github.com/FRC-Team8744/ThomasCanTurn2
 
 ## Control loop tuning
 1. The X button tells the robot to turn 90 degrees when you press it. We are going to practice tuning the controller (i.e. the command "TurnToAngle.java")
-2. Did you notice anything pop up in Shuffleboard? Look for the PID "Turn Controller".
-3. You should be able to edit the fields in Shuffleboard to change the PID controller settings.  It is slow, so be patient when waiting for a cursor.  **Be Cautious!**  I don't think the values are error-checked, so you can cause real harm with a bad value.  Experiment with changing P and testing the turn.
+2. We are going to use "Test" mode to tune the loop, because it should be faster than re-deploying the program with different constants.  **Be Cautious!**  I don't think the values are error-checked, so you can cause real harm with a bad value.
 > Note! The robot expects to be pointing to 0 degrees when the button is pressed.  You will have to manually turn it back for the next test.
-4. Did you notice anything else in Shuffleboard that could be useful?  Turn Error is on the board, but is not very useful as a simple number display.  Change the view to a chart to look for oscillations.
+3. Test mode is intended for quickly checking out motors and sensors to see if they are working, but it expects the programmer to be very carefull about what they are doing.  Because of this, it disable the normal scheduler that is used to run commands.  But we need this!  So we have to add the following to `Robot.java` in `testPeriodic`:
+```java
+CommandScheduler.getInstance().enable();
+```
+4. Now you should be able to move the robot in test mode.  Reset the robot orientation to zero degrees, change the P value in LiveWindow and press the X button.  **BE READY TO DISABLE THE ROBOT!**
 
 ## Profiled motion
 There is another command in the code called `TurnToAngleProfiled`.  Profiled motion allows us to limit the maximum speed and acceleration of the turn.  It is easy to think that the robot is already limited because it cannot accelerate immediately from a standing start, but what about stopping?  The PID controller does not know about the robot's inertia, so it is easy to overshoot the limit without turning slowly.  Profiled motion instructs the controller to start slowing down the turn in anticipation of the end of the turn.  Experiment with the speed and acceleration limits in `TurnToAngleProfiled`.
