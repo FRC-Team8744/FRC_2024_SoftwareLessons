@@ -5,7 +5,7 @@ There is a problem with humans - we're not linear.  That volume knob on your mus
 
 We do the same thing with velocities - it's easier to drive a remote control vehicle if there is less joystick sensitivity at lower speeds.  So, WPILib embeds joystick input squaring in the `arcadeDrive` method on the drivebase - by default.
 
-![]()
+![Joystick squaring](./Lesson05_resources/JoystickSquare.png)
 
 I had to dive deep into the library to find it, but if you don't want the "arcade" inputs to be squared then you have to create a drivebase method that adds an extra parameter.  This is called "overloading" in programming terms - the same function but with different numbers of parameters.  We have to add an overloaded method to the drivebase to allow shutting off input squaring:
 ```java
