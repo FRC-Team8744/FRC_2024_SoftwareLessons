@@ -1,3 +1,5 @@
+**Mistakes were made!**: Learn about Github from this lesson, but don't worry about control loop tuning or test mode.  There was a big error in this code that will be corrected next lesson.
+
 # Lesson 4: Thomas can turn! (yet again!)  11/02/2023
 Let's do a quick review of what we've learned so far:
 * Basic arcade-style driving of the robot
