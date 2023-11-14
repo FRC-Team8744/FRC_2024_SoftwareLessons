@@ -34,7 +34,9 @@ The next step is called "proportional" control.  Instead of turning full motor p
 
 Here we will introduce the graphical representation of our control system: [Basic Control Diagram](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/control-system-basics.html#nomenclature)
 
-![Basic Control Diagram](https://docs.wpilib.org/en/stable/_images/control-system-basics-feedbackplant.webp "WPILib Control System Basics")
+![Basic Control Diagram](./Lesson01_resources/control-system-basics-feedbackplant.webp)
+
+[Image Link: Basic Control Diagram](https://docs.wpilib.org/en/stable/_images/control-system-basics-feedbackplant.webp "WPILib Control System Basics")
 
 ### Definition of terms
 * reference (setpoint) - the goal your system is trying to reach
@@ -49,7 +51,9 @@ Here we will introduce the graphical representation of our control system: [Basi
 ### Control Response
 When talking about the performance of a controller, you will hear several common terms:
 
-![Response Types](https://docs.wpilib.org/en/stable/_images/introduction-to-pid-damped-controller.webp "PID responses")
+![Response Types](./Lesson01_resources/introduction-to-pid-damped-controller.webp)
+
+[Image link: Response Types](https://docs.wpilib.org/en/stable/_images/introduction-to-pid-damped-controller.webp "PID responses")
 
 * Unstable - the output looks like a sine wave and never settles to the setpoint
 * Underdamped - the output overshoots the setpoint and has a decaying oscillation
@@ -73,7 +77,9 @@ Because of the type of system under control (force required to keep on the setpo
 ### PID + FF System Diagram
 Now that you have a better feel for the system dynamics, we can discuss a more accurate system diagram:
 
-![System Diagram](https://docs.wpilib.org/en/stable/_images/control-system-basics-ctrl-plus-plant.webp "System Diagram")
+![System Diagram](./Lesson01_resources/control-system-basics-ctrl-plus-plant.webp)
+
+[Image link: System Diagram](https://docs.wpilib.org/en/stable/_images/control-system-basics-ctrl-plus-plant.webp "System Diagram")
 
 ## Make Thomas turn!
 1. This will be another super simple example (Thursday will be more complete).

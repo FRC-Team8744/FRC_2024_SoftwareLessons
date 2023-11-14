@@ -22,7 +22,9 @@ We will be working on "Forward" Kinematics - if we move a robot wheel, where doe
 
 Odometry is the use of data from motion sensors to estimate change in position over time.  We use the wheel encoders to measure how far they travel and the gyro to keep track of the robot orientation to the field.  Summing up the small changes in these measurements will keep track of the robot's position.
 
-![Odometry math](https://www.researchgate.net/profile/Kooktae-Lee/publication/225502915/figure/fig9/AS:668281539137550@1536342143576/The-kinematic-model-of-a-two-wheel-differential-mobile-robot.png)
+![Odometry math](./Lesson06_resources/The-kinematic-model-of-a-two-wheel-differential-mobile-robot.png)
+
+[Image link: Odometry math](https://www.researchgate.net/profile/Kooktae-Lee/publication/225502915/figure/fig9/AS:668281539137550@1536342143576/The-kinematic-model-of-a-two-wheel-differential-mobile-robot.png)
 
 Once we can track the robot's position on the field, then we can keep track of the robot's pose.  Who knows what a pose is?
 
