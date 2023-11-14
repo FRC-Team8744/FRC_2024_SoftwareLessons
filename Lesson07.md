@@ -1,7 +1,7 @@
 # Lesson 7: Making our own subsystem  11/14/2023
 
 ## Java Keyword Review
-* `package` declares a 'name space' for the Java class. It must be put at the top of the Java file, as the first statement.  The unique names used allows Java to keep track of code in different libraries and files without overlapping.
+* `package` declares a 'name space' for the Java class. It must be put at the top of the Java file, as the first statement.  The unique names used allows Java to keep track of code in different libraries and files without overlapping.  (In FRC, the `package` is related to the directory structure.)
 > Example: If you call an object `gyro` in your code, you don't want there to be any confusion with another object called `gyro` in the NavX library you imported. 
 * `import` declares a Java class to use in the code below the import statement. Once a Java class is declared, then the class name can be used in the code without specifying the package the class belongs to.
 * `public` declares a class member's access as open to the rest of the code. Public members are visible to all other classes. This means that any other class can access a public variable or method. Further, **other classes can modify public variables** unless it is declared as `final`.
