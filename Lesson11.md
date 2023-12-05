@@ -19,12 +19,6 @@ Let's take a quick assesment of the topics we have covered:
 
 Whew! That's a lot!  Is everyone ready for the season to start?
 
-* convert Swivels_SwerveControllerCommand to joystick
-* Autonomous command selector
-* simple drive & turn, command groups
-* PathPlanner description & install
-* create & test
-
 Next week, we will be simulating Kickoff and will need to think about how to break up the programming of a new robot.  That will use up the rest of our meetings before January.  What should we cover on Thursday, so everyone is more confident about starting the season?
 
 Thursday:
@@ -42,6 +36,8 @@ To make these types of problems easier to solve, we will learn about defining a 
 How does the robot follow a trajectory?  We create a controller object which tracks the robot's error from the defined path.  The controller will do it's best to move the robot back to the path as it travels.
 
 ![Path error - source:https://journals.sagepub.com/doi/10.5772/61391](./Lesson11_resources/images_large_10.5772_61391-fig5.jpeg)
+
+[What is a spline?](https://help.autodesk.com/view/ACD/2024/ENU/?guid=GUID-58316136-30EB-499C-ACAD-31D0C653B2B2)
 
 ## Start of programming exercise
 1. Go to VSCode and clone the project `Swivels_SwerveControllerCommand`.
@@ -99,15 +95,23 @@ Then, we have to define the PID controllers that try to follow the path.  We wil
             m_robotDrive);
 ```
 
-## Create your own command to follow a path
-3. In the file explorer, hover the cursor over the `commands` folder and right click.  At the bottom of the list, select "Create a new class/command".  Pick "Command" and name it `Auto_Path`.
-4. 
-* In `RobotContainer`, replace the example with your command name:
+## Create your own trajectory to follow
+3. In `RobotContainer`, modify the trajectory with your own values. Test it.
+4. Now let's move the trajectory object out of the command, so we can pass in any trajectory we want.  (Define the trajectory at the start of the `RobotContainer` class.)
+5. Make a second trajectory object with a different path.  Test that it is different when passed to the `SwerveControllerCommand`.
+6. Separate the controller command from `getAutonomousCommand`, like this:
+
 ```java
-public Command getAutonomousCommand() {return new YourCommand()}
+  public Command SwerveCommand() {
+      // Create config for trajectory
 ```
 
-## Create a command selector
+```java
+public Command getAutonomousCommand() {return SwerveCommand();}
+```
+
+
+## Challenge: add a command selector
 Once we have several possiblities for paths, we need to be able to select between them.  We do this with a [Sendable Chooser](https://docs.wpilib.org/en/stable/docs/software/dashboards/smartdashboard/choosing-an-autonomous-program-from-smartdashboard.html#creating-the-sendablechooser-object). We follow this general sequence:
 
 ```java
@@ -119,8 +123,8 @@ public class RobotContainer {
 ```java
     public RobotContainer() {
         // Add commands to the autonomous command chooser
-        m_chooser.setDefaultOption("Simple Auto", m_simpleAuto);
-        m_chooser.addOption("Complex Auto", m_complexAuto);
+        m_chooser.setDefaultOption("Simple Auto", SimpleCommand());
+        m_chooser.addOption("Complex Auto", ComplexCommand());
 
         // Put the chooser on the dashboard
         SmartDashboard.putData(m_chooser);
