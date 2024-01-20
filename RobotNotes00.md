@@ -94,3 +94,10 @@
    * [Adafruit optical interruptor](https://www.adafruit.com/product/2167)
 6. Find out from Jacob how the beam break sensor will be mounted on the shooter.  (Does it interrupt when the Note is in the correct position, or just when it is picked up from the floor)
 7. Think of other uses for these sensors.  Could we determine the velocity of a ring by how long the sensor is blocked?
+
+## Extra project - Robot ID
+1. Sometime today, the second swerve robot should be bolted together.  We want to be able to use the exact same codebase on both robots, but some things will be slightly different - for instance, the offsets for all the turning motors depend on how they were assembled.  We need some way for the software to automatically determine which robot the code is running on.
+2. I'm not aware of any serial numbers or other hardware flags we can read, but there is a way to [save values to the flash on the Roborio.](https://docs.wpilib.org/en/stable/docs/software/basic-programming/robot-preferences.html)
+3. Since we have not tried this approach before, let's keep it simple.  Save the robot name in a preference labeled "RobotName".
+4. We will have to read this value very early - perhaps in Robot.java, or RobotContainer init.  Then we will need to select the correct values for the motor offsets, SparkMax CAN IDs, etc - before we start initializing hardware.  Remember to have a default behavior if the preference value does not exist or we have an error reading it.
+5. **LET ME BE VERY CLEAR - WE DO NOT WANT TO PUT CRITICAL DATA IN THE FLASH MEMORY!**  No PID values, CAN IDs, robot specific offsets, etc.  This data will not be under version control in GitHub.  Also if we have a hardware failure at competition, we may have to swap out the RoboRio.  You wrote down all those stored values before the magic smoke came out, right?
